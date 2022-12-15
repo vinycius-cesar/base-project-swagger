@@ -1,0 +1,123 @@
+swagger: "2.0"
+info:
+  description: "Projeto base para outros projetos"
+  version: "1.0.0"
+  title: "Base Project - swagger codegen"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "teste@teste.com.br"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "projectbase.swagger.io"
+basePath: "/v2"
+
+schemes:
+  - "https"
+  - "http"
+
+paths:
+  /pessoa:
+    get:
+      tags:
+        - "Pessoa"
+      summary: "Listar pessoa"
+      operationId: "getPessoa"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+
+
+
+    post:
+      tags:
+        - "Pessoa"
+      summary: "Salvar pessoa"
+      operationId: "postPessoa"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "body the Person"
+          schema:
+            $ref: '#/definitions/Person'
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: '#/definitions/Person'
+
+    put:
+      tags:
+        - "Pessoa"
+      summary: "Editar pessoa"
+      operationId: "putPessoa"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "body the Person"
+          schema:
+            $ref: '#/definitions/Person'
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: '#/definitions/Person'
+
+    delete:
+      tags:
+        - "Pessoa"
+      summary: "Deletar pessoa"
+      operationId: "deletePessoa"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "body the Person"
+          schema:
+            $ref: '#/definitions/Person'
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: '#/definitions/Person'
+
+definitions:
+
+  Person:
+    type: object
+    properties:
+      idPerson:
+        type: integer
+        format: int64
+      namePerson:
+        type: string
+      agePerson:
+        type: integer
+        format: int64
+      cpfPerson:
+        type: integer
+        format: int64
+      emailPerson:
+        type: string
+
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
